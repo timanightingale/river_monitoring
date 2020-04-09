@@ -1,0 +1,1 @@
+copy public.one_day_data (user_id, location_id, indicator_id, value, date, action_id) from 'D:\Nygma\river_monitoring\inserts\one_day_data.csv' csv delimiter ',' encoding 'WIN1251'

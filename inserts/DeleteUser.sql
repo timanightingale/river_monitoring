@@ -1,0 +1,1 @@
+select DeleteUser('Tim','Griffit','tim.griff@gmail.com')

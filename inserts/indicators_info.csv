@@ -1,0 +1,45 @@
+1,ion_sum,1,Salt composition,1,Mineralization and electrical conductivity
+2,condc_spec,1,Salt composition,1,Mineralization and electrical conductivity
+3,sulfates,1,Salt composition,2,Sulfate content
+4,chlorides,1,Salt composition,3,Chloride content
+5,oxygen_diss,2,Chemical trophic-saprobiological criteria,4,Oxygen mode
+6,oxygen_sat,2,Chemical trophic-saprobiological criteria,4,Oxygen mode
+7,oxygen_sat_hyp,2,Chemical trophic-saprobiological criteria,4,Oxygen mode
+8,patricles_suspended,2,Chemical trophic-saprobiological criteria,5,Hydrophysical and general hydrochemical
+9,transparency,2,Chemical trophic-saprobiological criteria,5,Hydrophysical and general hydrochemical
+10,ph,2,Chemical trophic-saprobiological criteria,5,Hydrophysical and general hydrochemical
+11,ammonia_nitrogen,2,Chemical trophic-saprobiological criteria,6,Nitrogen content
+12,nitrite_nitrogen,2,Chemical trophic-saprobiological criteria,6,Nitrogen content
+13,nitrate_nitrogen,2,Chemical trophic-saprobiological criteria,6,Nitrogen content
+14,gen_nitrogen,2,Chemical trophic-saprobiological criteria,6,Nitrogen content
+15,phosphates_phosphorus,2,Chemical trophic-saprobiological criteria,7,Phosphorus content
+16,gen_phosphorus,2,Chemical trophic-saprobiological criteria,7,Phosphorus content
+17,gen_carbon,2,Chemical trophic-saprobiological criteria,8,Organic matter content
+18,permanganate_oxidation,2,Chemical trophic-saprobiological criteria,8,Organic matter content
+19,bichromate_oxidation,2,Chemical trophic-saprobiological criteria,8,Organic matter content
+20,bsk5,2,Chemical trophic-saprobiological criteria,8,Organic matter content
+21,gen_iron_all,3,Content criteria for specific substances of toxic and radiation effects,9,
+22,gen_iron_spec,3,Content criteria for specific substances of toxic and radiation effects,9,
+23,mercury,3,Content criteria for specific substances of toxic and radiation effects,9,
+24,cadmium,3,Content criteria for specific substances of toxic and radiation effects,9,
+25,cuprum,3,Content criteria for specific substances of toxic and radiation effects,9,
+26,zinc,3,Content criteria for specific substances of toxic and radiation effects,9,
+27,gen_plumbum,3,Content criteria for specific substances of toxic and radiation effects,9,
+28,gen_chromium,3,Content criteria for specific substances of toxic and radiation effects,9,
+29,nickel,3,Content criteria for specific substances of toxic and radiation effects,9,
+30,manganese,3,Content criteria for specific substances of toxic and radiation effects,9,
+31,arsenic,3,Content criteria for specific substances of toxic and radiation effects,9,
+32,fluorides,3,Content criteria for specific substances of toxic and radiation effects,9,
+33,cyanides,3,Content criteria for specific substances of toxic and radiation effects,9,
+34,petroleum_products,3,Content criteria for specific substances of toxic and radiation effects,9,
+35,phenols _volatiles,3,Content criteria for specific substances of toxic and radiation effects,9,
+36,spar,3,Content criteria for specific substances of toxic and radiation effects,9,
+37,baf,3,Content criteria for specific substances of toxic and radiation effects,9,
+38,pollutants,3,Content criteria for specific substances of toxic and radiation effects,9,
+39,sci,3,Content criteria for specific substances of toxic and radiation effects,9,
+40,sed_cadmium,3,Content criteria for specific substances of toxic and radiation effects,9,
+41,sed_plumbum,3,Content criteria for specific substances of toxic and radiation effects,9,
+42,sed_cuprum,3,Content criteria for specific substances of toxic and radiation effects,9,
+43,total_beta _activity,3,Content criteria for specific substances of toxic and radiation effects,9,
+44,sr90,3,Content criteria for specific substances of toxic and radiation effects,9,
+45,cs137,3,Content criteria for specific substances of toxic and radiation effects,9,
