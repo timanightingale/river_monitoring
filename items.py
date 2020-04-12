@@ -6,7 +6,13 @@ Created on Wed Apr  8 15:42:28 2020
 """
 from connector import read_query
 import pandas as pd
-locations_groups=read_query("select * from public.locations_groups" ,"archive")
+
+locations=read_query("select distinct location_id,location_name from public.locations" ,"archive")
+locations={loc:lid for lid,loc in zip(locations.location_id,locations.location_name)}
+
+indicators=read_query("select distinct indicator_id,indicator_name from public.indicators_info" ,"archive")
+indicators={nam:iid for iid,nam in zip(indicators.indicator_id,indicators.indicator_name)}
+
 fields=[
         'Організації',
         'Користувачі',
@@ -24,18 +30,20 @@ fields=[
         'Нафтопродукти'
         ]
 col_names={
-    'ion_sum':'Сума іонів', 
-    'condc_spec':'Питома електропровідність',
-    'sulfates':'Сульфати',
-    'chlorides':'Хлориди',
-    'oxygen_diss':'Розчинений кисень',
-    'oxygen_sat': '% насичення',
-    'oxygen_sat_hyp':'% насичення у гіполімніоні (для водойм)',
-    'patricles_suspended':'Завислі речовини',
-    'transparency':'Прозорість',
-    'ph':'pH',
-    'petroleum_products':'Нафтопродукти'
+    'Сума іонів':'ion_sum', 
+    'Питома електропровідність':'condc_spec',
+    'Сульфати':'sulfates',
+    'Хлориди':'chlorides',
+    'Розчинений кисень':'oxygen_diss',
+    '% насичення':'oxygen_sat',
+    '% насичення у гіполімніоні (для водойм)':'oxygen_sat_hyp',
+    'Завислі речовини':'patricles_suspended',
+    'Прозорість':'transparency',
+    'pH':'ph',
+    'Нафтопродукти':'petroleum_products'
         }
+
+rivers=['Дон', 'Дніпро']
 subgroups={'Дніпро': 1,
  'Дунай': 2,
  'Закарпаття': 3,
