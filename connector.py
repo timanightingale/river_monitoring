@@ -31,16 +31,17 @@ def read_query(query,bd_name):
 def connection(bd_name):
     conn = psycopg2.connect(host="localhost",database=bd_name, user="postgres", password="WeWeWe11")
     return conn
+#uncomment for static table reloading!!
 #def update_table(list_name,bd_name):
 #    df=pd.read_excel('sample1.xlsx',sheet_name=list_name)
 #    print(df.head())
 #    df.to_csv('inserts/{}.csv'.format(list_name),header=None,index=False, encoding='cp1251')
 #    conn = psycopg2.connect(host="localhost",database=bd_name, user="postgres", password="WeWeWe11")
 #    cur=conn.cursor()
-#    #cur.execute("""truncate table public.{}""".format(list_name))
 #    filepath=r"'D:\Nygma\river_monitoring\inserts\{}.csv'".format(list_name)
 #    print("copy public.{} ({}) from {} csv delimiter ',' encoding 'WIN1251'".format(list_name,", ".join(df.columns),filepath,list_name) )
-#    result=cur.execute("copy public.{} ({}) from {} csv delimiter ',' encoding 'WIN1251'".format(list_name,", ".join(df.columns),filepath,list_name) )
+#    cur.execute("copy public.{} ({}) from {} csv delimiter ',' encoding 'WIN1251'".format(list_name,", ".join(df.columns),filepath,list_name) )
+#    conn.commit()
 #    cur.close()
 #    
 #for tb in archive_table_names:

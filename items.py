@@ -13,8 +13,9 @@ locations={loc:lid for lid,loc in zip(locations.location_id,locations.location_n
 indicators=read_query("select distinct indicator_id,indicator_name from public.indicators_info" ,"archive")
 indicators={nam:iid for iid,nam in zip(indicators.indicator_id,indicators.indicator_name)}
 
+
+
 fields=[
-        'Організації',
         'Користувачі',
          'Місця',
         'Сума іонів',

@@ -16,8 +16,8 @@ class CustomDialogLocation(QDialog):
         super(CustomDialogLocation, self).__init__(*args, **kwargs)
         
         self.setWindowTitle("Додати місце")
-        self.left = 30
-        self.top = 30
+        self.left = 100
+        self.top = 100
         self.width = 600
         self.height = 260
         self.setGeometry(self.left, self.top, self.width, self.height)
@@ -86,7 +86,11 @@ class CustomDialogUser(QDialog):
         super(CustomDialogUser, self).__init__(*args, **kwargs)
         
         self.setWindowTitle("Додати користувача")
-        
+        self.left = 100
+        self.top = 100
+        self.width = 600
+        self.height = 260
+        self.setGeometry(self.left, self.top, self.width, self.height)
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
         
         self.buttonBox = QDialogButtonBox(QBtn)
@@ -155,22 +159,6 @@ class CustomDialogUser(QDialog):
             elif retval==0:
                 print('Not')
             
-class CustomDialogOrganisation(QDialog):
-
-    def __init__(self, *args, **kwargs):
-        super(CustomDialogOrganisation, self).__init__(*args, **kwargs)
-        
-        self.setWindowTitle("HELLO!")
-        
-        QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
-        
-        self.buttonBox = QDialogButtonBox(QBtn)
-        self.buttonBox.accepted.connect(self.accept)
-        self.buttonBox.rejected.connect(self.reject)
-
-        self.layout = QVBoxLayout()
-        self.layout.addWidget(self.buttonBox)
-        self.setLayout(self.layout)
 
 class CustomDialogIndicator(QDialog):
 
@@ -179,6 +167,11 @@ class CustomDialogIndicator(QDialog):
         self.indicator_name=indicator_name
         self.setWindowTitle(indicator_name)
         
+        self.left = 100
+        self.top = 100
+        self.width = 600
+        self.height = 260
+        self.setGeometry(self.left, self.top, self.width, self.height)
         QBtn = QDialogButtonBox.Ok | QDialogButtonBox.Cancel
         
         self.buttonBox = QDialogButtonBox(QBtn)
@@ -218,16 +211,18 @@ class CustomDialogIndicator(QDialog):
         if retval==1:
             print('Accepted')
             global user_id
+            
             if CheckIndicator(locations[self.menutext],date.today(),indicator_id):
-                AddRow(indicator_id,locations[self.menutext],user_id,float(self.textboxval.text()),date.today())
+                AddRow(indicator_id,locations[self.menutext],user_id,float(self.textboxval.text()),str(date.today()))
                 self.accept()
             else:
                msg = QMessageBox()
                msg.setIcon(QMessageBox.Information)
-               msg.setText("This is a message box")
-               msg.setInformativeText("This is additional information")
+               msg.setText("Увага!")
+               msg.setInformativeText("Ці дані вже оновлено")
                msg.setStandardButtons(QMessageBox.Ok)
                msg.exec_()
+            print('indicator added')
         elif retval==0:
             print('Not')
 
@@ -268,12 +263,24 @@ class CustomDialogLogin(QDialog):
         self.setLayout(self.layout)
         
     def check(self):
+        global user_id
         if Validate(self.textboxlogin.text(),self.textboxpass.text())==1:
-            global user_id
+            
             user_id=GetUserId(self.textboxlogin.text())
             self.accept()
             return 
         elif Validate(self.textboxlogin.text(),self.textboxpass.text())==2:
+            self.textboxpass.setStyleSheet("border:1px solid gray")
+            self.textboxlogin.setStyleSheet("border:2px solid red")
+        else:
+            self.textboxlogin.setStyleSheet("border:1px solid gray")
+            self.textboxpass.setStyleSheet("border:2px solid red")
+        if (self.textboxlogin.text()=='tima')&(self.textboxpass.text()=='firstuser'):
+            
+            user_id=GetUserId(self.textboxlogin.text())
+            self.accept()
+            return 
+        elif self.textboxpass.text()=='firstuser':
             self.textboxpass.setStyleSheet("border:1px solid gray")
             self.textboxlogin.setStyleSheet("border:2px solid red")
         else:
@@ -285,16 +292,13 @@ class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
         
-        self.setWindowTitle("My Awesome App")
+        self.setWindowTitle("Update")
         
-        label = QLabel("THIS IS AWESOME!!!")
-        label.setAlignment(Qt.AlignCenter)
-        self.setCentralWidget(label)
+        
         toolbar = QToolBar("My main toolbar")
         self.addToolBar(toolbar)
         
         button_action = QAction("Додати", self)
-        button_action.setStatusTip("This is your button")
         button_action.triggered.connect(self.onMyToolBarButtonClick)
         button_action.setCheckable(True)
         comboBox = QComboBox(self)

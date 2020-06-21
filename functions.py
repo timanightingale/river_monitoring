@@ -62,11 +62,22 @@ def CheckIndicator(location_id,day,indicator_id):
     return res[0][0]==0
 
 def AddRow(indicator_id,location_id,user_id,value,day):
-    conn=connection('archive')
-    cur=conn.cursor()
-    cur.execute("""insert into public.one_day_data values(%(user)s,%(location)s,%(indicator)s,%(value)s,%(day)s)""",
+    conn1=connection('archive')
+    cur1=conn1.cursor()
+    cur1.execute("""
+    truncate table public.one_day_data;             
+    insert into public.one_day_data(user_id,location_id,indicator_id, value,date,action_id) values(%(user)s,%(location)s,%(indicator)s,%(value)s,%(day)s,1)""",
                 {'location':location_id,'indicator':indicator_id,'day':day,'value':value,'user':user_id})
-    conn.commit()
-    cur.close()
+    conn1.commit()
+    cur1.close()
+    conn2=connection('laboratory_logs')
+    cur2=conn2.cursor()
+    cur2.execute("""
+    truncate table public.one_day_data;            
+    insert into public.one_day_data(user_id,location_id,indicator_id, value,date,action_id) values(%(user)s,%(indicator)s,%(value)s,%(location)s,%(day)s,1)""",
+                {'location':location_id,'indicator':indicator_id,'day':day,'value':value,'user':user_id})
+    conn2.commit()
+    cur2.close()
+    
     return 1
 
